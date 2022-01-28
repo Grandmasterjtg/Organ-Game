@@ -3,17 +3,21 @@ extends KinematicBody2D
 const UP_DIRECTION := Vector2.UP
 
 export var speed := 600.0
+export var jump_speed := 15.0
 export var jump_strength := 2000.0
 export var gravity := 4500.0
 
 var velocity := Vector2.ZERO
 
 func _physics_process(delta):
-	var horizontal_direction = (
-		Input.get_action_strength("move_right")
-		- Input.get_action_strength("move_left")
-	)
+	var horizontal_direction = velocity.x / speed
 	
+	if is_on_floor():
+		horizontal_direction = (
+			Input.get_action_strength("move_right")
+			- Input.get_action_strength("move_left")
+		)
+		
 	velocity.x = horizontal_direction * speed
 	velocity.y += gravity * delta
 	
