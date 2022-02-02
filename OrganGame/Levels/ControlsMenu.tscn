@@ -1,0 +1,122 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/ChangeKeyboardControlButton.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/PlayButton.gd" type="Script" id=2]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MoveLeft" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_top = -50.0
+margin_bottom = -50.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MoveLeft"]
+margin_left = -100.0
+margin_top = -5.0
+margin_right = -30.0
+margin_bottom = 9.0
+text = "MOVE LEFT"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="MoveLeft"]
+anchor_right = 1.0
+margin_left = 30.0
+margin_top = -10.0
+margin_right = 130.0
+margin_bottom = 10.0
+focus_mode = 0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+action = "move_left"
+default = "A"
+
+[node name="MoveRight" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MoveRight"]
+margin_left = -100.0
+margin_top = -5.0
+margin_right = -18.0
+margin_bottom = 9.0
+text = "MOVE RIGHT"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="MoveRight"]
+anchor_right = 1.0
+margin_left = 30.0
+margin_top = -10.0
+margin_right = 130.0
+margin_bottom = 10.0
+focus_mode = 0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+action = "move_right"
+default = "D"
+
+[node name="Jump" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_top = 50.0
+margin_bottom = 50.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Jump"]
+margin_left = -100.0
+margin_top = -5.0
+margin_right = -18.0
+margin_bottom = 9.0
+text = "JUMP"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Jump"]
+anchor_right = 1.0
+margin_left = 30.0
+margin_top = -10.0
+margin_right = 130.0
+margin_bottom = 10.0
+focus_mode = 0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+action = "jump"
+default = "Space"
+
+[node name="Test Gameplay" type="Button" parent="."]
+margin_left = 51.0
+margin_top = 39.0
+margin_right = 158.0
+margin_bottom = 59.0
+text = "Test Gameplay"
+script = ExtResource( 2 )
