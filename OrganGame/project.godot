@@ -14,6 +14,10 @@ config/name="OrganGame"
 run/main_scene="res://Levels/MainMenu.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+GameManager="*res://Scripts/GameManager.gd"
+
 [input]
 
 move_right={

@@ -99,9 +99,11 @@ func handle_state():
 		MovementState.Idle:
 			anim.play("Idle")
 		MovementState.Damaged:
+			print("success")
 			anim.play("Damage")
+			anim.set_frame(0)
 			
-func _on_HurtBox_area_entered(area):
+func _on_HurtBox_area_entered(_area):
 	set_state(MovementState.Damaged)
 	react_damage = true
 	timer.start()
