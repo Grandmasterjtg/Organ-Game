@@ -1,24 +1,39 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/PlayerMovement.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Kidney_Spritesheets/SpriteFrames/Kidne_SpriteFrames.tres" type="SpriteFrames" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 30.5, 29.5 )
+extents = Vector2( 50.5, 62 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 49.5, 61.5 )
 
 [node name="PlayerMovement" type="KinematicBody2D"]
 position = Vector2( 496, 296 )
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
 speed = 500.0
 jump_strength = 1500.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -0.5, 0.5 )
+position = Vector2( -25.5, 21 )
 shape = SubResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( -0.5, 0.5 )
-texture = ExtResource( 2 )
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( -3.99994, 3.99994 )
+scale = Vector2( 0.341, 0.341 )
+frames = ExtResource( 2 )
+animation = "Jump"
+frame = 2
+playing = true
+
+[node name="HurtBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2( -25.5, 21.5 )
+shape = SubResource( 2 )
+
+[node name="DamageTimer" type="Timer" parent="."]
+
+[connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
+[connection signal="timeout" from="DamageTimer" to="." method="_on_DamageTimer_timeout"]
