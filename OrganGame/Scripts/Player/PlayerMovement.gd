@@ -99,7 +99,6 @@ func handle_state():
 		MovementState.Idle:
 			anim.play("Idle")
 		MovementState.Damaged:
-			print("success")
 			anim.play("Damage")
 			anim.set_frame(0)
 			
