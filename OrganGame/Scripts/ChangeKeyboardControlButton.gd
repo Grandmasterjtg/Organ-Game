@@ -4,11 +4,8 @@ extends Button
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-signal cancel
 var listening = false
 export var action = ""
-export var default = ""
-var key = InputEventKey.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,28 +13,31 @@ func _ready():
 	if InputMap.get_action_list(action).front() == null:
 		print("Specified action does not exist in Button")
 	else:
-		text = default
+		_set_text()
 
 func _button_pressed():
-	emit_signal("cancel")
 	listening = true
 	text = ""
 
 func _cancel():
 	listening = false
-	text = key.as_text()
-	if text == "":
-		text = default
+	_set_text()
 
 func _input(ev):
+	if listening and ev is InputEventMouseButton:
+		_cancel()
 	if listening and ev is InputEventKey:
 		for i in InputMap.get_action_list(action):
 			if i is InputEventKey:
 				InputMap.action_erase_event(action, i)
-		key = ev
 		InputMap.action_add_event(action, ev)
-		text = ev.as_text()
+		_set_text()
 		listening = false
+
+func _set_text():
+	for i in InputMap.get_action_list(action):
+		if i is InputEventKey:
+			text = OS.get_scancode_string(i.scancode)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
