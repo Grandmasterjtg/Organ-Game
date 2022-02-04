@@ -22,9 +22,6 @@ extents = Vector2( 30, 28.5 )
 [node name="EnemyReaction" type="KinematicBody2D"]
 position = Vector2( 497, 296 )
 script = SubResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -0.5 )
