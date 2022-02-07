@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Assets/Kidney_Spritesheets/SpriteFrames/Kidne_SpriteFrames.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://Scripts/Player/PlayerCombat.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Player/Hands.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 102.5, 128.5 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 99.25, 122 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 45.5, 86 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 46.25, 81 )
+
+[node name="Node2D" type="Node2D"]
+position = Vector2( 226, 175 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+script = ExtResource( 2 )
+timeTillNextInput = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
+position = Vector2( -119.5, -42.5 )
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="KinematicBody2D"]
+position = Vector2( -76.5, -76.5 )
+scale = Vector2( 0.694, 0.694 )
+frames = ExtResource( 1 )
+animation = "Idle"
+
+[node name="HurtBox" type="Area2D" parent="KinematicBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D/HurtBox"]
+position = Vector2( -117.25, -45 )
+shape = SubResource( 2 )
+
+[node name="Hands" type="Node2D" parent="KinematicBody2D"]
+script = ExtResource( 3 )
+
+[node name="Front" type="Area2D" parent="KinematicBody2D/Hands"]
+
+[node name="frontColl" type="CollisionShape2D" parent="KinematicBody2D/Hands/Front" groups=["P1Colliders"]]
+modulate = Color( 0.605469, 0.0567627, 0.0567627, 1 )
+position = Vector2( -168, -75 )
+shape = SubResource( 3 )
+
+[node name="Up" type="Area2D" parent="KinematicBody2D/Hands"]
+
+[node name="upColl" type="CollisionShape2D" parent="KinematicBody2D/Hands/Up" groups=["P1Colliders"]]
+modulate = Color( 0.709804, 0.729412, 0.0666667, 1 )
+position = Vector2( -73.25, -79 )
+shape = SubResource( 4 )
+
+[connection signal="body_entered" from="KinematicBody2D/Hands/Front" to="KinematicBody2D/Hands" method="_on_Front_body_entered"]
+[connection signal="body_entered" from="KinematicBody2D/Hands/Up" to="KinematicBody2D/Hands" method="_on_Up_body_entered"]
