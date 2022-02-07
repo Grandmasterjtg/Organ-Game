@@ -1,4 +1,4 @@
-extends Button
+extends Control
 
 
 # Declare member variables here. Examples:
@@ -8,11 +8,12 @@ extends Button
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	connect("button_up", self, "_button_pressed")
+	pass # Replace with function body.
 
-func _button_pressed():
-	get_tree().paused = false
-	get_tree().change_scene("res://Levels/MainMenu.tscn")
+func _input(ev):
+	if ev.is_action_pressed("pause"):
+		get_tree().paused = not get_tree().paused
+		visible = get_tree().paused
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
