@@ -12,7 +12,7 @@ func _ready():
 
 func _button_pressed():
 	get_tree().paused = false
-	get_tree().change_scene("res://Levels/MainMenu.tscn")
+	get_parent().visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
