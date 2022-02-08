@@ -7,7 +7,7 @@ var current_state = PlayerState.Idle
 export var speed := 600.0
 export var in_air_speed := 50.0
 export var max_speed_offset := 50.0
-var velocity = Vector2.ZERO
+var velocity := Vector2.ZERO
 
 # Jump Variables
 export var jump_strength := 2000.0
