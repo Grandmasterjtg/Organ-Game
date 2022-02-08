@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/Kidney_Spritesheets/SpriteFrames/Kidne_SpriteFrames.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://Scripts/Player/PlayerController.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 48, 57.5 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 40.5, 50 )
+
+[node name="Kidney" type="KinematicBody2D"]
+position = Vector2( 453, 254 )
+collision_layer = 0
+script = ExtResource( 2 )
+
+[node name="Body" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Animations" type="Node2D" parent="."]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Animations"]
+position = Vector2( 20, -17 )
+scale = Vector2( 0.334, 0.334 )
+frames = ExtResource( 1 )
+animation = "Idle"
+
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource( 2 )
+
+[node name="DamageTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
+[connection signal="timeout" from="DamageTimer" to="." method="_on_DamageTimer_timeout"]
