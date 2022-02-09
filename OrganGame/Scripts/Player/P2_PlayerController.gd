@@ -20,8 +20,9 @@ export var gravity := 4500.0
 # combat variables
 export var attack_cooldown := 0.5
 var attack_time := 0.0
-export var damage_reaction = Vector2(200, -1000)
-onready var damage_timer = $DamageTimer
+export var damage_reaction := Vector2(200, -1000)
+onready var damage_timer := $DamageTimer
+onready var health_bar := get_node("../P2HealthBar/ProgressBar")
 
 # animation variables
 onready var anim := $Animations/AnimatedSprite
@@ -127,6 +128,7 @@ func handle_state_change() -> void:
 			anim.play("Idle")
 		PlayerState.Damaged:
 			health -= 10
+			health_bar.update_progress_bar(health)
 			# if the player is not defeated
 			if health > 0:
 				anim.play("Damage")

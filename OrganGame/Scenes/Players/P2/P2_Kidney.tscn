@@ -10,6 +10,7 @@ extents = Vector2( 16, 38.75 )
 extents = Vector2( 40.5, 50 )
 
 [node name="P2_Kidney" type="KinematicBody2D"]
+collision_layer = 0
 script = ExtResource( 2 )
 
 [node name="Body" type="CollisionShape2D" parent="."]
@@ -33,3 +34,6 @@ shape = SubResource( 2 )
 
 [node name="DamageTimer" type="Timer" parent="."]
 wait_time = 0.5
+
+[connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
+[connection signal="timeout" from="DamageTimer" to="." method="_on_DamageTimer_timeout"]

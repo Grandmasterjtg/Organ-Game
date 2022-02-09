@@ -12,9 +12,6 @@ extents = Vector2( 40.5, 50 )
 [node name="Kidney" type="KinematicBody2D"]
 collision_layer = 0
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Body" type="CollisionShape2D" parent="."]
 position = Vector2( 1, 18.75 )
