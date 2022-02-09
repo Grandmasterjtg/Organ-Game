@@ -18,6 +18,31 @@ margin_bottom = 70.0
 text = "Back to Main Menu"
 script = ExtResource( 2 )
 
+[node name="Player1List" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -175.5
+margin_top = -160.0
+margin_right = -124.5
+margin_bottom = -146.0
+text = "Player 1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player2List" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 124.5
+margin_top = -160.0
+margin_right = 175.5
+margin_bottom = -146.0
+text = "Player 2"
+
 [node name="MoveLeft" type="Control" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
@@ -29,21 +54,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="MoveLeft"]
-margin_left = -110.0
-margin_top = -5.0
-margin_right = -40.0
-margin_bottom = 9.0
-text = "MOVE LEFT"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Button" type="Button" parent="MoveLeft"]
+[node name="Player1Button" type="Button" parent="MoveLeft"]
 anchor_right = 1.0
-margin_left = 40.0
+margin_left = -200.0
 margin_top = -10.0
-margin_right = 140.0
+margin_right = -100.0
 margin_bottom = 10.0
 focus_mode = 0
 script = ExtResource( 1 )
@@ -51,6 +66,30 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 action = "p1_move_left"
+
+[node name="Label" type="Label" parent="MoveLeft"]
+margin_left = -35.0
+margin_top = -5.0
+margin_right = 35.0
+margin_bottom = 9.0
+text = "MOVE LEFT"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player2Button" type="Button" parent="MoveLeft"]
+anchor_right = 1.0
+margin_left = 100.0
+margin_top = -10.0
+margin_right = 200.0
+margin_bottom = 10.0
+focus_mode = 0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+action = "p2_move_left"
 
 [node name="MoveRight" type="Control" parent="."]
 anchor_left = 0.5
@@ -64,20 +103,21 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="MoveRight"]
-margin_left = -110.0
+margin_left = -41.0
 margin_top = -5.0
-margin_right = -28.0
+margin_right = 41.0
 margin_bottom = 9.0
 text = "MOVE RIGHT"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="MoveRight"]
+[node name="Player1Button" type="Button" parent="MoveRight"]
 anchor_right = 1.0
-margin_left = 40.0
+margin_left = -200.0
 margin_top = -10.0
-margin_right = 140.0
+margin_right = -100.0
 margin_bottom = 10.0
 focus_mode = 0
 script = ExtResource( 1 )
@@ -85,6 +125,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 action = "p1_move_right"
+
+[node name="Player2Button" type="Button" parent="MoveRight"]
+anchor_right = 1.0
+margin_left = 100.0
+margin_top = -10.0
+margin_right = 200.0
+margin_bottom = 10.0
+focus_mode = 0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+action = "p2_move_right"
 
 [node name="Jump" type="Control" parent="."]
 anchor_left = 0.5
@@ -98,20 +151,21 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Jump"]
-margin_left = -110.0
+margin_left = -41.0
 margin_top = -5.0
-margin_right = -28.0
+margin_right = 41.0
 margin_bottom = 9.0
 text = "JUMP"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="Jump"]
+[node name="Player1Button" type="Button" parent="Jump"]
 anchor_right = 1.0
-margin_left = 40.0
+margin_left = -200.0
 margin_top = -10.0
-margin_right = 140.0
+margin_right = -100.0
 margin_bottom = 10.0
 focus_mode = 0
 script = ExtResource( 1 )
@@ -119,6 +173,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 action = "p1_jump"
+
+[node name="Player2Button" type="Button" parent="Jump"]
+anchor_right = 1.0
+margin_left = 100.0
+margin_top = -10.0
+margin_right = 200.0
+margin_bottom = 10.0
+focus_mode = 0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+action = "p2_jump"
 
 [node name="AttackUp" type="Control" parent="."]
 anchor_left = 0.5
@@ -132,20 +199,21 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="AttackUp"]
-margin_left = -110.0
+margin_left = -41.0
 margin_top = -5.0
-margin_right = -28.0
+margin_right = 41.0
 margin_bottom = 9.0
 text = "ATTACK UP"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="AttackUp"]
+[node name="Player1Button" type="Button" parent="AttackUp"]
 anchor_right = 1.0
-margin_left = 40.0
+margin_left = -200.0
 margin_top = -10.0
-margin_right = 140.0
+margin_right = -100.0
 margin_bottom = 10.0
 focus_mode = 0
 script = ExtResource( 1 )
@@ -153,6 +221,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 action = "p1_attack_up"
+
+[node name="Player2Button" type="Button" parent="AttackUp"]
+anchor_right = 1.0
+margin_left = 100.0
+margin_top = -10.0
+margin_right = 200.0
+margin_bottom = 10.0
+focus_mode = 0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+action = "p2_attack_up"
 
 [node name="AttackForward" type="Control" parent="."]
 anchor_left = 0.5
@@ -166,20 +247,21 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="AttackForward"]
-margin_left = -110.0
+margin_left = -59.0
 margin_top = -5.0
-margin_right = 8.0
+margin_right = 59.0
 margin_bottom = 9.0
 text = "ATTACK FORWARD"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="AttackForward"]
+[node name="Player1Button" type="Button" parent="AttackForward"]
 anchor_right = 1.0
-margin_left = 40.0
+margin_left = -200.0
 margin_top = -10.0
-margin_right = 140.0
+margin_right = -100.0
 margin_bottom = 10.0
 focus_mode = 0
 script = ExtResource( 1 )
@@ -188,33 +270,47 @@ __meta__ = {
 }
 action = "p1_attack_forward"
 
+[node name="Player2Button" type="Button" parent="AttackForward"]
+anchor_right = 1.0
+margin_left = 100.0
+margin_top = -10.0
+margin_right = 200.0
+margin_bottom = 10.0
+focus_mode = 0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+action = "p2_attack_forward"
+
 [node name="Pause" type="Control" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_top = 125.0
-margin_bottom = 125.0
+margin_top = 175.0
+margin_bottom = 175.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="Pause"]
-margin_left = -110.0
-margin_top = -5.0
-margin_right = 8.0
-margin_bottom = 9.0
+margin_left = -20.5
+margin_top = -17.0
+margin_right = 20.5
+margin_bottom = -3.0
 text = "PAUSE"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Button" type="Button" parent="Pause"]
 anchor_right = 1.0
-margin_left = 40.0
-margin_top = -10.0
-margin_right = 140.0
-margin_bottom = 10.0
+margin_left = -50.0
+margin_top = 10.0
+margin_right = 50.0
+margin_bottom = 30.0
 focus_mode = 0
 script = ExtResource( 1 )
 __meta__ = {
