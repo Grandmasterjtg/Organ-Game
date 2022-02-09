@@ -49,6 +49,7 @@ position = Vector2( -19.5, 238.75 )
 shape = SubResource( 3 )
 
 [node name="WallRight" type="StaticBody2D" parent="GroundNodes"]
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GroundNodes/WallRight"]
 position = Vector2( 1041.25, 239 )
