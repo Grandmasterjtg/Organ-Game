@@ -8,12 +8,13 @@ export var character : String = ""
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if character == "":
-		print("Character name cannot be empty")
+	pass
 	
 func _pressed():
-	GameManager.set_player(character)
+	if character != "":
+		GameManager.set_player(character)
 	get_tree().change_scene("res://Levels/TestLevel.tscn")
+	get_tree().paused = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
