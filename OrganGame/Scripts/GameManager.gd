@@ -1,6 +1,7 @@
 extends Node
 
-var player : String = "res://Scenes/PlayerMovement.tscn"
+# default is kidney
+var player : String = "res://Scenes/Players/Kidney.tscn"
 var enemy : String
 
 func set_player(location : String) -> void:

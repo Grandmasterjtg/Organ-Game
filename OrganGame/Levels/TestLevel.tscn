@@ -51,7 +51,7 @@ rotation = 1.39626
 shape = SubResource( 2 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 513, 300 )
+position = Vector2( 511, 300 )
 current = true
 
 [node name="Pause" type="Control" parent="."]
