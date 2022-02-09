@@ -18,7 +18,7 @@ export var jump_strength := 1500.0
 export var gravity := 4500.0
 
 # combat variables
-export var attack_cooldown := 1.0
+export var attack_cooldown := 0.5
 var attack_time := 0.0
 export var damage_reaction = Vector2(200, -1000)
 onready var damage_timer = $DamageTimer
@@ -48,7 +48,7 @@ func _process(delta):
 					set_current_state(PlayerState.Idle)
 					
 		# if player has been defeated
-		if health <= 0:
+		if health <= 0 or position.y > 650:
 			set_current_state(PlayerState.Down)
 				
 func _physics_process(delta):
@@ -132,7 +132,6 @@ func handle_state_change() -> void:
 				anim.set_frame(0)
 				damage_timer.start()
 		PlayerState.Down:
-			print("success")
 			anim.play("Down")
 			velocity = Vector2.ZERO
 			# disables hurtbox so the player can't take damage after defeat

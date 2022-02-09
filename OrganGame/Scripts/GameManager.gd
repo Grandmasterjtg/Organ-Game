@@ -2,7 +2,7 @@ extends Node
 
 # default is kidney
 var player : String = "res://Scenes/Players/Kidney.tscn"
-var enemy : String
+var enemy : String = "res://Scenes/TestGetEnemyDuringAttack.tscn"
 
 func set_player(location : String) -> void:
 	player = location
