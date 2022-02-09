@@ -50,7 +50,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-action = "move_left"
+action = "p1_move_left"
 
 [node name="MoveRight" type="Control" parent="."]
 anchor_left = 0.5
@@ -84,7 +84,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-action = "move_right"
+action = "p1_move_right"
 
 [node name="Jump" type="Control" parent="."]
 anchor_left = 0.5
@@ -118,7 +118,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-action = "jump"
+action = "p1_jump"
 
 [node name="AttackUp" type="Control" parent="."]
 anchor_left = 0.5
@@ -152,7 +152,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-action = "attack_up"
+action = "p1_attack_up"
 
 [node name="AttackForward" type="Control" parent="."]
 anchor_left = 0.5
@@ -186,7 +186,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-action = "attack_forward"
+action = "p1_attack_forward"
 
 [node name="Pause" type="Control" parent="."]
 anchor_left = 0.5
