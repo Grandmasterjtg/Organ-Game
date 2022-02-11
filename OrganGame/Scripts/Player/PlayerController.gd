@@ -128,7 +128,8 @@ func handle_state_change() -> void:
 			anim.play("Idle")
 		PlayerState.Damaged:
 			health -= 10
-			health_bar.update_progress_bar(health)
+			if health_bar:
+				health_bar.update_progress_bar(health)
 			# if the player is not defeated
 			if health > 0:
 				anim.play("Damage")
