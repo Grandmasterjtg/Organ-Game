@@ -8,13 +8,13 @@ var p1_hp = 0
 
 func _ready():
 	# create the player
-	var p1_character = load(GameManager.get_player()).instance()
+	var p1_character = load(GameManager.get_player(1)).instance()
 	p1_character.position = p1_position
 	add_child(p1_character)
 	p1_hp = p1_character.get_health()
 	print(p1_hp)
 	
-	var p2_character = load(GameManager.get_enemy()).instance()
+	var p2_character = load(GameManager.get_player(2)).instance()
 	p2_character.position = p2_position
 	add_child(p2_character)
 	p2_character.get_node("Animations").scale.x = -1
