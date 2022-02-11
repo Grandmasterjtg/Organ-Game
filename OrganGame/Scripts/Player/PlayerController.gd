@@ -22,7 +22,10 @@ export var attack_cooldown := 0.5
 var attack_time := 0.0
 export var damage_reaction := Vector2(200, -1000)
 onready var damage_timer := $DamageTimer
+onready var attack_timer := $AttackTimer
 onready var health_bar := get_node("../P1HealthBar/ProgressBar")
+onready var hands := $Animations/Hands
+var current_attack_index := 0
 
 # animation variables
 onready var anim := $Animations/AnimatedSprite
@@ -40,13 +43,16 @@ func _process(delta):
 			if current_state != PlayerState.Attacking:
 				if Input.is_action_just_pressed("p1_attack_forward"):
 					attack("SideAttack")
+					current_attack_index = 0
 				elif Input.is_action_just_pressed("p1_attack_up"):
 					attack("UpAttack")
+					current_attack_index = 1
 			# limits attack spamming
 			else:
 				attack_time -= delta
 				if attack_time <= 0:
 					set_current_state(PlayerState.Idle)
+					hands.handle_specific_collider_disabling(true, current_attack_index)
 					
 		# if player has been defeated
 		if health <= 0 or position.y > 650:
@@ -104,6 +110,7 @@ func attack(anim_name : String) -> void:
 	anim.play(anim_name)
 	anim.set_frame(0)
 	set_current_state(PlayerState.Attacking)
+	attack_timer.start()
 	
 # setter for the velocity variable
 func set_velocity(new_velocity : Vector2) -> void:
@@ -146,13 +153,14 @@ func _on_HurtBox_area_entered(area : Area2D) -> void:
 	set_current_state(PlayerState.Damaged)
 	
 	# direction form attack to character
-	var direction = position.x - area.position.x
+	var direction = global_position.x - area.global_position.x
 	# if the hit came from the left
 	if direction >= 0:
 		velocity = damage_reaction
 	# if the hit came from the right
 	else:
 		velocity = Vector2(damage_reaction.x * -1, damage_reaction.y)
+	area.get_child(0).set_disabled(true)
 
 
 func _on_DamageTimer_timeout() -> void:
@@ -162,3 +170,8 @@ func _on_DamageTimer_timeout() -> void:
 	
 func get_health() -> float:
 	return health
+
+
+func _on_AttackTimer_timeout():
+	hands.handle_specific_collider_disabling(false, current_attack_index)
+	attack_timer.stop()

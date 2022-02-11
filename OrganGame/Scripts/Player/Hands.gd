@@ -2,6 +2,7 @@ extends Node2D
 
 var fightColl = []
 var disableColl = true
+export var group := "P1Colliders"
 
 
 export var group_name = ""
@@ -17,7 +18,7 @@ func _process(delta):
 
 func handle_all_collider_disabling(isDisabled : bool) -> void:
 	var h = 0
-	for collider in get_tree().get_nodes_in_group("P1Colliders"):
+	for collider in get_tree().get_nodes_in_group(group):
 		fightColl.insert(h, collider)
 		fightColl[h].set_disabled(isDisabled)
 		
@@ -26,6 +27,7 @@ func handle_all_collider_disabling(isDisabled : bool) -> void:
 		elif !fightColl[h].is_disabled():
 			print (fightColl[h].name + " is NOT disabled")
 		h += 1
+		
 	
 func handle_specific_collider_disabling(isDisabled : bool, index : int) -> void:
 	 fightColl[index].set_disabled(isDisabled)
