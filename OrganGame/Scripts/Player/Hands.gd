@@ -15,13 +15,6 @@ func _process(delta):
 		handle_specific_collider_disabling(disableColl, 1)
 
 
-func _on_Front_body_entered(body):
-	pass # Replace with function body.
-
-
-func _on_Up_body_entered(body):
-	pass # Replace with function body.
-
 func handle_all_collider_disabling(isDisabled : bool) -> void:
 	var h = 0
 	for collider in get_tree().get_nodes_in_group("P1Colliders"):
