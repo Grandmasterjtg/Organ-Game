@@ -22,7 +22,7 @@ export var attack_cooldown := 0.5
 var attack_time := 0.0
 export var damage_reaction := Vector2(200, -1000)
 onready var damage_timer := $DamageTimer
-onready var health_bar := get_node("../P1HealthBar/ProgressBar")
+onready var health_bar := get_node("../P2HealthBar/ProgressBar")
 
 # animation variables
 onready var anim := $Animations/AnimatedSprite
@@ -38,9 +38,9 @@ func _process(delta):
 		if current_state != PlayerState.Damaged:
 			# can't attack while attacking
 			if current_state != PlayerState.Attacking:
-				if Input.is_action_just_pressed("p1_attack_forward"):
+				if Input.is_action_just_pressed("p2_attack_forward"):
 					attack("SideAttack")
-				elif Input.is_action_just_pressed("p1_attack_up"):
+				elif Input.is_action_just_pressed("p2_attack_up"):
 					attack("UpAttack")
 			# limits attack spamming
 			else:
@@ -64,7 +64,7 @@ func _physics_process(delta):
 	if current_state != PlayerState.Damaged and current_state != PlayerState.Attacking and current_state != PlayerState.Down:
 		# gets horizontal direction based on player input
 		var horizontal_direction = (
-			Input.get_action_strength("p1_move_right") - Input.get_action_strength("p1_move_left"))
+			Input.get_action_strength("p2_move_right") - Input.get_action_strength("p2_move_left"))
 
 #		# sets velocity based on player input
 #		# ground velocity
@@ -78,10 +78,10 @@ func _physics_process(delta):
 
 		# check for player input
 		# jump
-		if Input.is_action_just_pressed("p1_jump") and is_on_floor() and current_state != PlayerState.Jumping:
+		if Input.is_action_just_pressed("p2_jump") and is_on_floor() and current_state != PlayerState.Jumping:
 			set_current_state(PlayerState.Jumping)
 		# jump cancelled
-		elif Input.is_action_just_released("p1_jump") and velocity.y < 0:
+		elif Input.is_action_just_released("p2_jump") and velocity.y < 0:
 			velocity.y = 0
 		# walking
 		elif not is_zero_approx(velocity.x) and is_on_floor() and current_state != PlayerState.Walking:

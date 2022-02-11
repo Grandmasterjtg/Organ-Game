@@ -18,6 +18,7 @@ margin_left = -30.0
 margin_top = -10.0
 margin_right = 30.0
 margin_bottom = 10.0
+focus_mode = 0
 text = "Kidney"
 script = ExtResource( 1 )
 character = "res://Scenes/PlayerMovement.tscn"

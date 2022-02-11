@@ -1,20 +1,19 @@
-extends Button
+extends Control
 
 
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-export var character : String = ""
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
-	
-func _pressed():
-	if character != "":
-		GameManager.set_player(character)
-	get_tree().change_scene("res://Levels/TestLevel.tscn")
-	get_tree().paused = false
+	pass # Replace with function body.
+
+func _input(ev):
+	if ev.is_action_pressed("pause"):
+		get_tree().paused = not get_tree().paused
+		visible = get_tree().paused
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
