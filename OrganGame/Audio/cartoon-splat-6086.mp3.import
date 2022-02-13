@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/cartoon-splat-6086.mp3-174094a76cc39e1ecb4f278547f9d87f.mp3str"
+
+[deps]
+
+source_file="res://Audio/cartoon-splat-6086.mp3"
+dest_files=[ "res://.import/cartoon-splat-6086.mp3-174094a76cc39e1ecb4f278547f9d87f.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
