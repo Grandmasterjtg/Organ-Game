@@ -150,6 +150,8 @@ func handle_state_change() -> void:
 			velocity = Vector2.ZERO
 			# disables hurtbox so the player can't take damage after defeat
 			get_node("HurtBox/CollisionShape2D").set_disabled(true)
+			# player 2 lost, player 1 won
+			GameManager.set_winning_player(1)
 
 # when the player is hit
 func _on_HurtBox_area_entered(area : Area2D) -> void:
@@ -165,7 +167,8 @@ func _on_HurtBox_area_entered(area : Area2D) -> void:
 		# if the hit came from the right
 		else:
 			velocity = Vector2(damage_reaction.x * -1, damage_reaction.y)
-		area.get_child(0).set_disabled(true)
+		# disables players fist after attack lands
+		area.get_child(0).call_deferred("set_disabled", true)
 
 
 func _on_DamageTimer_timeout() -> void:

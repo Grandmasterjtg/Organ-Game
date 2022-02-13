@@ -11,7 +11,7 @@ func _ready():
 	pass # Replace with function body.
 
 func _input(ev):
-	if ev.is_action_pressed("pause"):
+	if ev.is_action_pressed("pause") and not GameManager.get_game_over():
 		get_tree().paused = not get_tree().paused
 		visible = get_tree().paused
 

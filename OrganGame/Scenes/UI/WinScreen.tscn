@@ -1,0 +1,86 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Fonts/TTFs/Oswald-Bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Scripts/GoToMainMenu.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/QuitButton.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/StartGameButton.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/WinScreen.gd" type="Script" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 46
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 1 )
+
+[node name="WinScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BlackOverlay" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.172549 )
+
+[node name="WinningPlayer" type="Label" parent="."]
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 376.0
+margin_top = 100.0
+margin_right = 134.0
+margin_bottom = -131.0
+custom_fonts/font = SubResource( 1 )
+text = "Player 0 Wins"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VButtonContainer" type="VBoxContainer" parent="."]
+visible = false
+margin_left = 445.0
+margin_top = 300.0
+margin_right = 579.0
+margin_bottom = 368.0
+custom_constants/separation = 10
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Restart" type="Button" parent="VButtonContainer"]
+margin_left = 38.0
+margin_right = 95.0
+margin_bottom = 20.0
+size_flags_horizontal = 4
+text = "Restart"
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainMenu" type="Button" parent="VButtonContainer"]
+margin_top = 30.0
+margin_right = 134.0
+margin_bottom = 50.0
+text = "Back to Main Menu"
+script = ExtResource( 2 )
+
+[node name="QuitGame" type="Button" parent="VButtonContainer"]
+margin_left = 26.0
+margin_top = 60.0
+margin_right = 108.0
+margin_bottom = 80.0
+size_flags_horizontal = 4
+text = "Quit Game"
+script = ExtResource( 3 )
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
