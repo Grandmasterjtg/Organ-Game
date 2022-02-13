@@ -4,8 +4,6 @@ extends KinematicBody2D
 enum PlayerState { Idle, Walking, Jumping, Attacking, Damaged, Down }
 var current_state = PlayerState.Idle
 
-export var health := 100.0
-
 # movement variables
 const UP_DIRECTION = Vector2.UP
 export var speed := 30000.0
@@ -18,7 +16,7 @@ export var jump_strength := 1500.0
 export var gravity := 4500.0
 
 # combat variables
-export var attack_cooldown := 0.5
+export var attack_cooldown := 0.667
 var attack_time := 0.0
 export var damage_reaction := Vector2(200, -1000)
 onready var damage_timer := $DamageTimer
@@ -26,6 +24,10 @@ onready var attack_timer := $AttackTimer
 onready var health_bar := get_node("../P2HealthBar/ProgressBar")
 onready var hands := $Animations/Hands
 var current_attack_index := 0
+
+# health variables
+export var health := 100.0
+export var damage := 10.0
 
 # animation variables
 onready var anim := $Animations/AnimatedSprite
@@ -135,7 +137,7 @@ func handle_state_change() -> void:
 		PlayerState.Idle:
 			anim.play("Idle")
 		PlayerState.Damaged:
-			health -= 10
+			health -= damage
 			if health_bar:
 				health_bar.update_progress_bar(health)
 			# if the player is not defeated
@@ -151,17 +153,19 @@ func handle_state_change() -> void:
 
 # when the player is hit
 func _on_HurtBox_area_entered(area : Area2D) -> void:
-	set_current_state(PlayerState.Damaged)
-	
-	# direction form attack to character
-	var direction = global_position.x - area.global_position.x
-	# if the hit came from the left
-	if direction >= 0:
-		velocity = damage_reaction
-	# if the hit came from the right
-	else:
-		velocity = Vector2(damage_reaction.x * -1, damage_reaction.y)
-	area.get_child(0).set_disabled(true)
+	# if the attack came from a different character
+	if self != area.owner:
+		set_current_state(PlayerState.Damaged)
+		
+		# direction form attack to character
+		var direction = global_position.x - area.global_position.x
+		# if the hit came from the left
+		if direction >= 0:
+			velocity = damage_reaction
+		# if the hit came from the right
+		else:
+			velocity = Vector2(damage_reaction.x * -1, damage_reaction.y)
+		area.get_child(0).set_disabled(true)
 
 
 func _on_DamageTimer_timeout() -> void:

@@ -69,8 +69,11 @@ focus_mode = 0
 group = ExtResource( 3 )
 text = "Brain"
 script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 playerNum = 1
-characterName = "res://Scenes/Players/P1/Kidney.tscn"
+characterName = "res://Scenes/Players/P1/Brain.tscn"
 
 [node name="Heart" type="CheckBox" parent="Player1"]
 margin_left = -150.0
@@ -81,8 +84,11 @@ focus_mode = 0
 group = ExtResource( 3 )
 text = "Heart"
 script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 playerNum = 1
-characterName = "res://Scenes/Players/P1/Kidney.tscn"
+characterName = "res://Scenes/Players/P1/Heart.tscn"
 
 [node name="Player2" type="Control" parent="."]
 anchor_left = 0.5
@@ -126,7 +132,7 @@ group = ExtResource( 2 )
 text = "Brain"
 script = ExtResource( 4 )
 playerNum = 2
-characterName = "res://Scenes/Players/P2/P2_Kidney.tscn"
+characterName = "res://Scenes/Players/P2/P2_Brain.tscn"
 
 [node name="Heart" type="CheckBox" parent="Player2"]
 margin_left = 79.0
@@ -137,5 +143,8 @@ focus_mode = 0
 group = ExtResource( 2 )
 text = "Heart"
 script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 playerNum = 2
-characterName = "res://Scenes/Players/P2/P2_Kidney.tscn"
+characterName = "res://Scenes/Players/P2/P2_Heart.tscn"
