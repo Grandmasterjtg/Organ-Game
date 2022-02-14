@@ -9,7 +9,7 @@ The default keyboard controls of the game are as follows.
 
 | Player 1 | Player 2 |
 | ----- | ----- |
-| A moves Left, D on moves Right | J moves Left, L moves Right |
+| A moves Left and D on moves Right | J moves Left and L moves Right |
 | W Jumps | I Jumps |
 | E attacks Forward and Q attacks Up | O attacks Forward and U attacks Up |
 
