@@ -32,6 +32,10 @@ export var damage := 10.0
 # animation variables
 onready var anim := $Animations/AnimatedSprite
 
+# sound variables
+onready var walk_sound := $WalkSound
+onready var damage_sound := $DamageSound
+
 func _ready():
 	attack_time = attack_cooldown
 	set_current_state(PlayerState.Idle)
@@ -128,16 +132,21 @@ func set_current_state(new_state) -> void:
 	handle_state_change()
 # handles logic during a state change
 func handle_state_change() -> void:
+	walk_sound.stop()
+	
 	match current_state:
 		PlayerState.Jumping:
 			velocity.y = -jump_strength
 			anim.play("JumpFull")
 		PlayerState.Walking:
 			anim.play("Walk")
+			walk_sound.play(0.0)
 		PlayerState.Idle:
 			anim.play("Idle")
 		PlayerState.Damaged:
+			# does damage
 			health -= damage
+			# makes sure the health bar exists
 			if health_bar:
 				health_bar.update_progress_bar(health)
 			# if the player is not defeated
@@ -145,6 +154,7 @@ func handle_state_change() -> void:
 				anim.play("Damage")
 				anim.set_frame(0)
 				damage_timer.start()
+			damage_sound.play()
 		PlayerState.Down:
 			anim.play("Down")
 			velocity = Vector2.ZERO

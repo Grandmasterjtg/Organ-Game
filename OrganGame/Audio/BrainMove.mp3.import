@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/BrainMove.mp3-ea1d338b4ef45afaebc407049fc47db0.mp3str"
+
+[deps]
+
+source_file="res://Audio/BrainMove.mp3"
+dest_files=[ "res://.import/BrainMove.mp3-ea1d338b4ef45afaebc407049fc47db0.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

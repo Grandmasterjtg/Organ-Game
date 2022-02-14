@@ -1,12 +1,14 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Assets/Kidney_Spritesheets/SpriteFrames/Kidne_SpriteFrames.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://Scripts/Player/P2_PlayerController.gd" type="Script" id=2]
 [ext_resource path="res://Fonts/DynamicFonts/PlayerLabel.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Scripts/Player/Hands.gd" type="Script" id=4]
+[ext_resource path="res://Audio/Kidney_Footsteps.wav" type="AudioStream" id=5]
+[ext_resource path="res://Audio/Hit_Noise.mp3" type="AudioStream" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 16, 38.75 )
+extents = Vector2( 43.5, 55.75 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 21, 20 )
@@ -35,7 +37,7 @@ __meta__ = {
 }
 
 [node name="Body" type="CollisionShape2D" parent="."]
-position = Vector2( 1, 18.75 )
+position = Vector2( -1.5, 1.75 )
 shape = SubResource( 1 )
 
 [node name="Animations" type="Node2D" parent="."]
@@ -80,6 +82,13 @@ wait_time = 0.5
 
 [node name="AttackTimer" type="Timer" parent="."]
 wait_time = 0.375
+
+[node name="WalkSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+pitch_scale = 2.0
+
+[node name="DamageSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
 
 [connection signal="body_entered" from="Animations/Hands/Front" to="Animations/Hands" method="_on_Front_body_entered"]
 [connection signal="body_entered" from="Animations/Hands/Up" to="Animations/Hands" method="_on_Up_body_entered"]
