@@ -21,5 +21,5 @@ The goal of the game is to reducde the other players health to zero. The health 
 ##### Stage background music:
 Lone Wolf - **playonloop.com**
 
-##### Player Sound Effects
+##### Player Sound Effects:
 **freesound.org**
