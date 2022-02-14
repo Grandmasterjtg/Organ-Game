@@ -28,7 +28,7 @@ margin_left = -57.0
 margin_top = -80.0
 margin_right = 57.0
 margin_bottom = -52.0
-custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
 custom_fonts/font = ExtResource( 3 )
 text = "Player 1"
 align = 1
@@ -47,7 +47,8 @@ shape = SubResource( 1 )
 position = Vector2( 20, -17 )
 scale = Vector2( 0.334, 0.334 )
 frames = ExtResource( 1 )
-animation = "Idle"
+animation = "SideAttack"
+frame = 5
 
 [node name="Hands" type="Node2D" parent="Animations"]
 script = ExtResource( 4 )
@@ -82,7 +83,7 @@ shape = SubResource( 2 )
 wait_time = 0.5
 
 [node name="AttackTimer" type="Timer" parent="."]
-wait_time = 0.375
+wait_time = 0.417
 
 [node name="WalkSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 5 )
