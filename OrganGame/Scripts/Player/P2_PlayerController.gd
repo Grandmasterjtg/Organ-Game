@@ -107,6 +107,8 @@ func _physics_process(delta):
 			anim.get_parent().scale.x = -1
 		elif horizontal_direction > 0:
 			anim.get_parent().scale.x = 1
+	elif current_state == PlayerState.Down:
+		velocity.x = 0
 	
 	# moves the player
 	velocity = move_and_slide(velocity, UP_DIRECTION)
